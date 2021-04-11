@@ -1,25 +1,38 @@
-# React Starter Kit
-Starter kit is just an extension of the create react app project [Create React App](https://github.com/facebook/create-react-app).
+# Employee Manager - React Firebase Authentication
 
-### Includes The Following Modules
-styled-components
-svgo
-@svgr/cli
-node-sass
+## What is this?
+This is a project created to showcase authentication using [Firebase's authentication](https://firebase.google.com/docs/auth/) service. 
 
-### Available Scripts
+The `/dashboard` route is protected against unauthenticated users.
 
-In the project directory, you can run:
+Users can register an account using the `/register` route and filling out the form with valid credentials.
 
-### `npm start`
+## What can this project do?
+- Register new users
+- Authenticate users
+- Sign out users
 
-Runs the app in the development mode.\
+You can login as any registered user.
 
-### `npm run build`
+You can create a new user.
 
-Builds the app for production to the `build` folder.\
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can sign out of the currently authenticated user using the `signout` button.
 
-### Setup Firebase
+## Users
+The following is a valid registered user you can use for testing purposes.
 
-Don't upload firebaseConfig to GitHub.
+- email: `chris@home.com`
+- password: `password`
+
+## How to run this project
+Run the following commands in the root directory
+
+1. `npm install`
+2. `npm start`
+
+## Useful links
+
+[Firebase](https://firebase.google.com/)
+[React](https://reactjs.org/)
+[React Context](https://reactjs.org/docs/context.html)
+
