@@ -1,8 +1,12 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link, useRouteMatch, Route, Switch } from "react-router-dom";
 
 import AuthContext from "auth/AuthContext";
+import ViewAll from "./panels/ViewAll";
+import EditPanel from "./panels/EditPanel";
+import DeletePanel from "./panels/DeletePanel";
+import CreatePanel from "./panels/CreatePanel";
 
 const DashBoardStyles = styled.header`
   display: flex;
@@ -38,8 +42,9 @@ const Panels = styled.aside`
 
 const DashBoard = (props) => {
   const auth = useContext(AuthContext);
+  const { path, url } = useRouteMatch();
 
-  if (auth.authenticated) {  
+  if (auth.authenticated) {
     return (
       <DashBoardStyles>
         <SideBar>
@@ -47,19 +52,42 @@ const DashBoard = (props) => {
             <h1>Firebase</h1>
             <p>whats all the fuss about</p>
           </header>
-  
+
           <ul>
-            <li>view all</li>
-            <li>add new employee</li>
-            <li>edit an employee</li>
-            <li>delete an employee</li>
+            <li>
+              <Link to={`${url}`}>view all</Link>
+            </li>
+            <li>
+              <Link to={`${url}/create`}>create content</Link>
+            </li>
+            <li>
+              <Link to={`${url}/edit`}>edit content</Link>
+            </li>
+            <li>
+              <Link to={`${url}/delete`}>remove content</Link>
+            </li>
           </ul>
         </SideBar>
-        <Panels></Panels>
+        <Panels>
+          <Switch>
+            <Route path={path}>
+              <ViewAll />
+            </Route>
+            <Route path={`${path}/create`}>
+              <CreatePanel />
+            </Route>
+            <Route path={`${path}/edit`}>
+              <EditPanel />
+            </Route>
+            <Route path={`${path}/delete`}>
+              <DeletePanel />
+            </Route>
+          </Switch>
+        </Panels>
       </DashBoardStyles>
     );
   } else {
-    return <Redirect to='/login' />
+    return <Redirect to="/login" />;
   }
 };
 

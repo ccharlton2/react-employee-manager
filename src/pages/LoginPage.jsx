@@ -31,8 +31,8 @@ const LoginPage = () => {
 
   // useState functional approach to building components
   const auth = useContext(AuthContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("chris@home.com");
+  const [password, setPassword] = useState("password");
   const [isValid, setIsValid] = useState(false);
 
   const handleLogin = (e) => {
