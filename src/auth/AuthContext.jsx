@@ -13,7 +13,7 @@ const AuthProvider = (props) => {
 
   return (
     <AuthContext.Provider
-      value={{ role:"admin", uid:null, authenticated:true }}
+      value={{ role:"admin", uid:null, authenticated:false }}
     >
       {props.children}
     </AuthContext.Provider>
